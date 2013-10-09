@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://web91.website.net.ii.pwr.wroc.pl/DemoWebService.asmx?WSDL" uri="wsdl/web91.website.net.ii.pwr.wroc.pl/DemoWebService.asmx.wsdl"/>
+</catalog>
