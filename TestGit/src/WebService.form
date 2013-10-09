@@ -67,11 +67,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Imi&#x119;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="imieActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="czas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Czas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="czasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="wynik">
     </Component>

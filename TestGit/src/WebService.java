@@ -33,8 +33,18 @@ public class WebService extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         imie.setText("Imię");
+        imie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imieActionPerformed(evt);
+            }
+        });
 
         czas.setText("Czas");
+        czas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                czasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,6 +81,18 @@ public class WebService extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void imieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imieActionPerformed
+        // TODO add your handling code here:
+        wynik.setText(witaj(poleTekstowe.getText()));
+        poleTekstowe.setText("");
+    }//GEN-LAST:event_imieActionPerformed
+
+    private void czasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_czasActionPerformed
+        // TODO add your handling code here:
+        wynik.setText(witajTeraz(poleTekstowe.getText()));
+        poleTekstowe.setText("");
+    }//GEN-LAST:event_czasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,4 +134,16 @@ public class WebService extends javax.swing.JFrame {
     private javax.swing.JTextField poleTekstowe;
     private javax.swing.JLabel wynik;
     // End of variables declaration//GEN-END:variables
+
+    private static String witaj(java.lang.String imie) {
+        pl.wroc.pwr.ii.net.DemoWebService service = new pl.wroc.pwr.ii.net.DemoWebService();
+        pl.wroc.pwr.ii.net.DemoWebServiceSoap port = service.getDemoWebServiceSoap();
+        return port.witaj(imie);
+    }
+
+    private static String witajTeraz(java.lang.String imie) {
+        pl.wroc.pwr.ii.net.DemoWebService service = new pl.wroc.pwr.ii.net.DemoWebService();
+        pl.wroc.pwr.ii.net.DemoWebServiceSoap port = service.getDemoWebServiceSoap();
+        return port.witajTeraz(imie);
+    }
 }
