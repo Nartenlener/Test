@@ -85,7 +85,7 @@ public class WebService extends javax.swing.JFrame {
     private void imieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imieActionPerformed
         // TODO add your handling code here:
         wynik.setText(witaj(poleTekstowe.getText()));
-        poleTekstowe.setText("");
+        //poleTekstowe.setText("");
     }//GEN-LAST:event_imieActionPerformed
 
     private void czasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_czasActionPerformed
