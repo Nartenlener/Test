@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://net.ii.pwr.wroc.pl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://net.ii.pwr.wroc.pl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://net.ii.pwr.wroc.pl/">
+      <s:element name="witaj">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="witajResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="witajResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="witajTeraz">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="imie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="witajTerazResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="witajTerazResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="witajSoapIn">
+    <wsdl:part name="parameters" element="tns:witaj" />
+  </wsdl:message>
+  <wsdl:message name="witajSoapOut">
+    <wsdl:part name="parameters" element="tns:witajResponse" />
+  </wsdl:message>
+  <wsdl:message name="witajTerazSoapIn">
+    <wsdl:part name="parameters" element="tns:witajTeraz" />
+  </wsdl:message>
+  <wsdl:message name="witajTerazSoapOut">
+    <wsdl:part name="parameters" element="tns:witajTerazResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DemoWebServiceSoap">
+    <wsdl:operation name="witaj">
+      <wsdl:input message="tns:witajSoapIn" />
+      <wsdl:output message="tns:witajSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="witajTeraz">
+      <wsdl:input message="tns:witajTerazSoapIn" />
+      <wsdl:output message="tns:witajTerazSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DemoWebServiceSoap" type="tns:DemoWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="witaj">
+      <soap:operation soapAction="http://net.ii.pwr.wroc.pl/witaj" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="witajTeraz">
+      <soap:operation soapAction="http://net.ii.pwr.wroc.pl/witajTeraz" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DemoWebServiceSoap12" type="tns:DemoWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="witaj">
+      <soap12:operation soapAction="http://net.ii.pwr.wroc.pl/witaj" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="witajTeraz">
+      <soap12:operation soapAction="http://net.ii.pwr.wroc.pl/witajTeraz" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DemoWebService">
+    <wsdl:port name="DemoWebServiceSoap" binding="tns:DemoWebServiceSoap">
+      <soap:address location="http://web91.website.net.ii.pwr.wroc.pl/DemoWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DemoWebServiceSoap12" binding="tns:DemoWebServiceSoap12">
+      <soap12:address location="http://web91.website.net.ii.pwr.wroc.pl/DemoWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

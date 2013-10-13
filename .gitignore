@@ -1,2 +1,6 @@
-/TestGit/nbproject/private/
-/TestGit/build/
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
